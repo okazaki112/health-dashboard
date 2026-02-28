@@ -1,0 +1,232 @@
+/* Common Styles */
+
+// 容器
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 @spacing-lg;
+}
+
+// 卡片
+.card {
+  background: @bg-primary;
+  border-radius: @radius-lg;
+  box-shadow: @shadow-sm;
+  border: 1px solid @border-color;
+  padding: @spacing-lg;
+  
+  &-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: @spacing-md;
+    padding-bottom: @spacing-md;
+    border-bottom: 1px solid @border-light;
+  }
+  
+  &-title {
+    font-size: @font-size-lg;
+    font-weight: 600;
+    color: @text-primary;
+  }
+  
+  &-body {
+    // 卡片内容样式
+  }
+}
+
+// 统计卡片
+.stat-card {
+  background: linear-gradient(135deg, @bg-primary 0%, @bg-secondary 100%);
+  border-radius: @radius-lg;
+  padding: @spacing-lg;
+  display: flex;
+  flex-direction: column;
+  gap: @spacing-sm;
+  border: 1px solid @border-color;
+  transition: all @transition-normal;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: @shadow-md;
+  }
+  
+  &-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: @radius-md;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+  }
+  
+  &-value {
+    font-size: @font-size-2xl;
+    font-weight: 700;
+    color: @text-primary;
+  }
+  
+  &-label {
+    font-size: @font-size-sm;
+    color: @text-secondary;
+  }
+  
+  &-trend {
+    display: flex;
+    align-items: center;
+    gap: @spacing-xs;
+    font-size: @font-size-sm;
+    
+    &.up {
+      color: @success-color;
+    }
+    
+    &.down {
+      color: @danger-color;
+    }
+  }
+}
+
+// 页面标题
+.page-header {
+  margin-bottom: @spacing-lg;
+  
+  &-title {
+    font-size: @font-size-2xl;
+    font-weight: 700;
+    color: @text-primary;
+    margin-bottom: @spacing-xs;
+  }
+  
+  &-desc {
+    font-size: @font-size-sm;
+    color: @text-secondary;
+  }
+}
+
+// 工具栏
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: @spacing-lg;
+  flex-wrap: wrap;
+  gap: @spacing-md;
+  
+  &-left,
+  &-right {
+    display: flex;
+    align-items: center;
+    gap: @spacing-sm;
+  }
+}
+
+// 空状态
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: @spacing-xl * 2;
+  text-align: center;
+  
+  &-icon {
+    font-size: 64px;
+    color: @text-placeholder;
+    margin-bottom: @spacing-md;
+  }
+  
+  &-title {
+    font-size: @font-size-lg;
+    color: @text-secondary;
+    margin-bottom: @spacing-sm;
+  }
+  
+  &-desc {
+    font-size: @font-size-sm;
+    color: @text-placeholder;
+  }
+}
+
+// 进度条
+.progress-bar {
+  height: 8px;
+  background: @bg-tertiary;
+  border-radius: 4px;
+  overflow: hidden;
+  
+  &-fill {
+    height: 100%;
+    background: linear-gradient(90deg, @primary-color, @primary-light);
+    border-radius: 4px;
+    transition: width @transition-normal;
+  }
+}
+
+// 徽章
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  font-size: @font-size-xs;
+  font-weight: 500;
+  border-radius: @radius-sm;
+  
+  &-success {
+    background: fade(@success-color, 10%);
+    color: @success-color;
+  }
+  
+  &-warning {
+    background: fade(@warning-color, 10%);
+    color: @warning-color;
+  }
+  
+  &-danger {
+    background: fade(@danger-color, 10%);
+    color: @danger-color;
+  }
+  
+  &-info {
+    background: fade(@info-color, 10%);
+    color: @info-color;
+  }
+}
+
+// 动画
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn @transition-normal ease forwards;
+}
+
+// 响应式
+@media (max-width: 768px) {
+  .container {
+    padding: 0 @spacing-md;
+  }
+  
+  .stat-card {
+    padding: @spacing-md;
+  }
+  
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    
+    &-left,
+    &-right {
+      justify-content: center;
+    }
+  }
+}
